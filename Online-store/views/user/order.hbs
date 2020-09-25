@@ -1,0 +1,66 @@
+<div class=" mt-1">
+    <div style="margin: 0 auto" class="d-flex flex-column col-md-5 border-bottom pb-3">
+        <ul class="list-group">
+            {{#each products}}
+            <li class="list-group-item d-flex justify-content-between border border-primary rounded p-2 mt-1"
+                style="padding: 5px;">
+                <div>
+                    <img class="card-img-top" style="width: 50px;" src="{{this.item.imagePath}}" alt="Card image cap">
+                    <span>{{this.item.title}}</span>
+                    <span class="badge badge-secondary">{{this.item.price}}€</span>
+                </div>
+                <div class="flex-column d-flex align-items-center ">
+                    <span class="badge badge-secondary mt-3 "
+                        style="font-size: 20px;border-radius: 20px;">{{this.qty}}</span>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <span class="font-weight-bold" style="font-size: 20px;"> Total price: </span>
+                <span class="badge badge-secondary" style="font-size: 15px;">{{cart.totalPrice}}€</span>
+            </div>
+            <a href="/cart">Back to shopping-cart</a>
+        </div>
+    </div>
+    <div style="margin: 0 auto" class="d-flex flex-column col-md-4 mt-3 mb-5">
+        <form action="/order" method="post">
+            {{#if hasErrors}}
+            <div class="alert alert-danger m-0">
+                <p>{{message}}</p>
+            </div>
+            {{/if}}
+            {{#if user}}
+            <div class="form-group">
+                <label style="font-weight: bold;" for="email">E-Mail</label>
+                <input value="{{user.email}}" type="text" id="email" name="email" class="form-control" readonly>
+            </div>
+            {{else}}
+            <p style="font-weight: bold; color:red" class="text-center m-0">To create order you need to be signed in</p>
+            <div class="form-group">
+                <label style="font-weight: bold;" for="email">E-Mail</label>
+                <input type="text" id="email" name="email" class="form-control">
+            </div>
+            {{/if}}
+            <div class="form-group">
+                <label style="font-weight: bold;" for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control">
+            </div>
+            <div class="text-center">
+                <a href="/user/signup">Create new account </a>
+            </div>
+            <div class="form-group">
+                <label style="font-weight: bold;" for="email">Address</label>
+                <input type="text" id="address" name="address" class="form-control">
+            </div>
+            <div class="form-group">
+                <label style="font-weight: bold;" for="email">Phone</label>
+                <input type="text" id="phone" name="phone" class="form-control">
+            </div>
+            <div class="text-center">
+                <button class="btn btn-success" type="submit">Finish order</button>
+            </div>
+        </form>
+    </div>
+</div>

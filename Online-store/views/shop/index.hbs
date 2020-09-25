@@ -1,0 +1,26 @@
+{{#if message}}
+<div class="alert alert-success text-center">
+  <p>
+    {{message}}
+  </p>
+</div>
+{{/if}}
+{{#each products }}
+<div class="cards-view d-flex justify-content-around">
+  {{#each this}}
+  <div class="card" style="width: 18rem;">
+    <img src="{{this.imagePath}}" class="card-img-top img-responsive p-2" alt="...">
+    <div class="card-body">
+      <h5 class="card-title text-center">{{this.title}}</h5>
+      <p class="card-text text-center">{{this.description}}</p>
+      <div class="text-center">
+        <p class="price">{{this.price}}$</p>
+        <a href="/add-to-cart/{{this._id}}" class="btn btn-primary m-10">Add to cart</a>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+<div class="line">
+</div>
+{{/each}}

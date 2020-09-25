@@ -1,0 +1,25 @@
+.cards-view{
+    margin: 30px;
+}
+.price{
+    color: rgb(80, 78, 78);
+}
+.card img{
+    margin: auto;
+    width: 50%;
+}
+.line{
+    background-color: rgb(194, 194, 194);
+    width: 100%;
+    height: 3px;
+}
+.list-group-item span{
+    font-size: 15px;
+    margin-left: 10px;
+}
+.total-qty span{
+    font-size: 20px;
+}
+.total-price span{
+    font-size: 20px;
+}

@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center mt-5">
+    <div class="col-md-4 col-md-offset-4 ">
+        <h1>Sign In</h1>
+        {{#if hasErrors }}
+        <div class="alert alert-danger">
+            {{#each messages}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+        {{/if}}
+        <form action="/user/signin" method="post">
+            <div class="form-group">
+                <label style="font-weight: bold;" for="email">E-Mail</label>
+                <input type="text" id="email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label style="font-weight: bold;" for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control">
+            </div>
+            <button class="btn btn-primary" type="submit">Sign In</button>
+        </form>
+    </div>
+</div>
